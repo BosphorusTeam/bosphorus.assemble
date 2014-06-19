@@ -20,7 +20,7 @@ namespace Bosphorus.BootStapper.Facade
 
             container.Register(
                 Classes
-                    .FromThisAssembly()
+                    .FromAssemblyInThisApplication()
                     .BasedOn<IAssemblyProvider>()
                     .WithService
                     .Self(),

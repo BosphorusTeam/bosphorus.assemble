@@ -1,5 +1,4 @@
-﻿using Bosphorus.Container.Castle.Facade;
-using Castle.Core.Internal;
+﻿using Castle.Core.Internal;
 using Castle.MicroKernel.Registration;
 
 namespace Bosphorus.BootStapper.Runner
