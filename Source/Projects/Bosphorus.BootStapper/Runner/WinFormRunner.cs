@@ -1,6 +1,4 @@
-﻿using System.Net.Mime;
-using System.Windows.Forms;
-using Bosphorus.Container.Castle.Facade;
+﻿using System.Windows.Forms;
 using Bosphorus.Container.Castle.Registration;
 using Castle.MicroKernel.Registration;
 
