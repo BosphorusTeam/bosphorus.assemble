@@ -23,10 +23,10 @@ namespace Bosphorus.BootStapper.Runner
             }
         }
 
-        public static void Run<TForm>(Environment environment, Perspective perspective)
+        public new static void Run<TForm>(Environment environment, Perspective perspective, params string[] args)
             where TForm: Form
         {
-            Runner<WorkingDirectoryAssemblyProvider>.Run<Program<TForm>>(environment, perspective);
+            Runner<WorkingDirectoryAssemblyProvider>.Run<Program<TForm>>(environment, perspective, args);
         }
     }
 }
