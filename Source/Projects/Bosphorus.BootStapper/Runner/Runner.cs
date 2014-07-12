@@ -1,11 +1,53 @@
-﻿using Castle.Core.Internal;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
+using Bosphorus.BootStapper.Facade;
+using Castle.Core.Internal;
 using Castle.MicroKernel.Registration;
+using Castle.Windsor;
 
 namespace Bosphorus.BootStapper.Runner
 {
-    public class Runner<TAssemblyProvider> : Facade.AbstractIoC<TAssemblyProvider> 
+    public class Runner<TAssemblyProvider>
         where TAssemblyProvider : IAssemblyProvider
     {
+        protected static readonly WindsorContainer container;
+        private static readonly IAssemblyProvider assemblyProvider;
+
+        static Runner()
+        {
+            container = IoC<TAssemblyProvider>.container;
+            assemblyProvider = container.Resolve<IAssemblyProvider>();
+            AppDomain.CurrentDomain.AssemblyResolve += CurrentDomainOnAssemblyResolve;
+        }
+
+        private static Assembly CurrentDomainOnAssemblyResolve(object sender, ResolveEventArgs args)
+        {
+            if (args.RequestingAssembly != null)
+            {
+                return args.RequestingAssembly;
+            }
+
+            IEnumerable<Assembly> assemblies = assemblyProvider != null ? assemblyProvider.GetAssemblies() : AppDomain.CurrentDomain.GetAssemblies();
+            List<Assembly> assemblyList = assemblies.ToList();
+
+            Assembly exactMatchAssembly = assemblyList.FirstOrDefault(assembly => assembly.GetName().FullName == args.Name);
+            if (exactMatchAssembly != null)
+            {
+                return exactMatchAssembly;
+            }
+
+            string[] strings = args.Name.Split(',');
+            Assembly bindedAssembly = assemblyList.FirstOrDefault(assembly => assembly.GetName().Name == strings[0]);
+            if (bindedAssembly != null)
+            {
+                return bindedAssembly;
+            }
+
+            return null;
+        }
+
         public static void Run<TProgram>(Environment environment, Perspective perspective, params string[] args)
             where TProgram : class, IProgram
         {
