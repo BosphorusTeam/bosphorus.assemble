@@ -17,9 +17,9 @@ namespace Bosphorus.BootStapper.Runner
 
         static Runner()
         {
+            AppDomain.CurrentDomain.AssemblyResolve += CurrentDomainOnAssemblyResolve;
             container = IoC<TAssemblyProvider>.container;
             assemblyProvider = container.Resolve<IAssemblyProvider>();
-            AppDomain.CurrentDomain.AssemblyResolve += CurrentDomainOnAssemblyResolve;
         }
 
         private static Assembly CurrentDomainOnAssemblyResolve(object sender, ResolveEventArgs args)
