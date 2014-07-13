@@ -1,4 +1,4 @@
-﻿namespace Bosphorus.BootStapper.Runner
+﻿namespace Bosphorus.BootStapper.Program
 {
     public interface IProgram
     {

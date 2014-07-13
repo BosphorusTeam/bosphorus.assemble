@@ -5,6 +5,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Projects", "Projects", "{27
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bosphorus.BootStapper", "Projects\Bosphorus.BootStapper\Bosphorus.BootStapper.csproj", "{E964E4A5-A437-41AE-90DB-D2929617D55B}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Demos", "Demos", "{E55C824D-08E7-46F5-BD66-A27279DD1729}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bosphorus.BootStapper.Demo", "Demos\Bosphorus.BootStapper.Demo\Bosphorus.BootStapper.Demo.csproj", "{8F923CE4-8F75-48C5-8742-133E7D7D4B36}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,11 +19,16 @@ Global
 		{E964E4A5-A437-41AE-90DB-D2929617D55B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E964E4A5-A437-41AE-90DB-D2929617D55B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E964E4A5-A437-41AE-90DB-D2929617D55B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F923CE4-8F75-48C5-8742-133E7D7D4B36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F923CE4-8F75-48C5-8742-133E7D7D4B36}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F923CE4-8F75-48C5-8742-133E7D7D4B36}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F923CE4-8F75-48C5-8742-133E7D7D4B36}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{E964E4A5-A437-41AE-90DB-D2929617D55B} = {278664EF-A495-49A1-89F4-26798729FA81}
+		{8F923CE4-8F75-48C5-8742-133E7D7D4B36} = {E55C824D-08E7-46F5-BD66-A27279DD1729}
 	EndGlobalSection
 EndGlobal

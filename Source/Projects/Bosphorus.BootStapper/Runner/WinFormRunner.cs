@@ -1,4 +1,6 @@
 ﻿using System.Windows.Forms;
+using Bosphorus.BootStapper.Common;
+using Bosphorus.BootStapper.Program;
 using Bosphorus.Container.Castle.Registration;
 using Castle.MicroKernel.Registration;
 

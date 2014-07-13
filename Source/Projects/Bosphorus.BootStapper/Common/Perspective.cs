@@ -1,6 +1,6 @@
 ﻿using Bosphorus.Common.Clr.Enum;
 
-namespace Bosphorus.BootStapper.Runner
+namespace Bosphorus.BootStapper.Common
 {
     public class Perspective: Enumeration
     {

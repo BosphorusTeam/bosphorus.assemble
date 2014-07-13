@@ -2,10 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using Bosphorus.BootStapper.Facade;
+using Bosphorus.BootStapper.Common;
+using Bosphorus.BootStapper.Program;
+using Bosphorus.Container.Castle.Facade;
 using Castle.Core.Internal;
 using Castle.MicroKernel.Registration;
 using Castle.Windsor;
+using Environment = Bosphorus.BootStapper.Common.Environment;
 
 namespace Bosphorus.BootStapper.Runner
 {
