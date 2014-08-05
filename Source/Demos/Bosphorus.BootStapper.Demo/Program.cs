@@ -1,4 +1,4 @@
-﻿using System;
+﻿using Bosphorus.BootStapper.Common;
 using Bosphorus.BootStapper.Program;
 using Bosphorus.BootStapper.Runner;
 
@@ -15,13 +15,13 @@ namespace Bosphorus.BootStapper.Demo
 
         static void Main(string[] args)
         {
-            ConsoleRunner.Run<Program>(args);
+            ConsoleRunner.Run<Program>(Environment.Development, Perspective.Debug, args);
         }
 
         public void Run(string[] args)
         {
             int sum = service.Sum(1, 3);
-            Console.WriteLine(sum);
+            System.Console.WriteLine(sum);
         }
     }
 }
