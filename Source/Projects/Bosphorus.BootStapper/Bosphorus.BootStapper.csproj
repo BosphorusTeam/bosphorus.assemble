@@ -63,6 +63,7 @@
     <Compile Include="Runner\ConsoleRunner.cs" />
     <Compile Include="Program\IProgram.cs" />
     <Compile Include="Runner\AbstractRunner.cs" />
+    <Compile Include="Runner\WebApplicationRunner.cs" />
     <Compile Include="Runner\TestRunner.cs" />
     <Compile Include="Runner\WinFormRunner.cs" />
     <Compile Include="Runner\WinFormProgram.cs" />
