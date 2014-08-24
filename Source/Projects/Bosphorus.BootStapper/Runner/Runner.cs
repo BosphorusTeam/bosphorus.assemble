@@ -12,20 +12,20 @@ using Environment = Bosphorus.BootStapper.Common.Environment;
 
 namespace Bosphorus.BootStapper.Runner
 {
-    public class AbstractRunner<TAssemblyProvider>
-        where TAssemblyProvider : IAssemblyProvider
+    public class Runner
     {
-        private static readonly WindsorContainer container;
-        private static readonly IAssemblyProvider assemblyProvider;
+        private readonly IWindsorContainer container;
+        private readonly IAssemblyProvider assemblyProvider;
 
-        static AbstractRunner()
+        public Runner(IAssemblyProvider assemblyProvider)
         {
+            IoC ioc = new IoC(assemblyProvider);
+            container = ioc.container;
+            this.assemblyProvider = assemblyProvider;
             AppDomain.CurrentDomain.AssemblyResolve += CurrentDomainOnAssemblyResolve;
-            container = IoC<TAssemblyProvider>.container;
-            assemblyProvider = container.Resolve<IAssemblyProvider>();
         }
 
-        private static Assembly CurrentDomainOnAssemblyResolve(object sender, ResolveEventArgs args)
+        private Assembly CurrentDomainOnAssemblyResolve(object sender, ResolveEventArgs args)
         {
             if (args.RequestingAssembly != null)
             {
@@ -51,7 +51,7 @@ namespace Bosphorus.BootStapper.Runner
             return null;
         }
 
-        protected static void Run<TProgram>(Environment environment, Perspective perspective, Host host, params string[] args)
+        public void Run<TProgram>(Environment environment, Perspective perspective, Host host, params string[] args)
             where TProgram : class, IProgram
         {
             container.Register(

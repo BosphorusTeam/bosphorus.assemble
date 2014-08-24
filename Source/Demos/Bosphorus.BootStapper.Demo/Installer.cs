@@ -1,4 +1,6 @@
-﻿using Bosphorus.Container.Castle.Registration;
+﻿using System.Collections.Generic;
+using System.IO;
+using Bosphorus.Container.Castle.Registration;
 using Castle.MicroKernel.Registration;
 using Castle.MicroKernel.SubSystems.Configuration;
 using Castle.Windsor;
@@ -13,7 +15,7 @@ namespace Bosphorus.BootStapper.Demo
                 Component
                     .For<IService>()
                     .ImplementedBy<DefaultService>()
-                );
+            );
         }
     }
 }

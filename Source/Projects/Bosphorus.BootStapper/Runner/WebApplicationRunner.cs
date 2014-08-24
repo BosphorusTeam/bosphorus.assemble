@@ -4,13 +4,21 @@ using Castle.Core.Internal;
 
 namespace Bosphorus.BootStapper.Runner
 {
-    public class WebApplicationRunner<TAssemblyProvider> : AbstractRunner<TAssemblyProvider> 
-        where TAssemblyProvider : IAssemblyProvider
+    public class WebApplicationRunner<TAssemblyProvider>
+        where TAssemblyProvider : IAssemblyProvider, new()
     {
+        private static readonly Runner runner;
+
+        static WebApplicationRunner()
+        {
+            IAssemblyProvider assemblyProvider = new TAssemblyProvider();
+            runner = new Runner(assemblyProvider);
+        }
+
         public static void Run<TProgram>(Environment environment, Perspective perspective, params string[] args)
             where TProgram : class, IProgram
         {
-            Run<TProgram>(environment, perspective, Host.IIS, args);
+            runner.Run<TProgram>(environment, perspective, Host.IIS, args);
         }
     }
 }
