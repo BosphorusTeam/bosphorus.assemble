@@ -1,4 +1,5 @@
-﻿using Bosphorus.BootStapper.Common;
+﻿using System.Windows.Forms;
+using Bosphorus.BootStapper.Common;
 using Bosphorus.BootStapper.Program;
 using Bosphorus.BootStapper.Runner;
 using Bosphorus.BootStapper.Runner.AutoUpdate;
@@ -25,7 +26,7 @@ namespace Bosphorus.BootStapper.Demo
         {
             string path1 = @"\\svn-srv\Artifact";
             string path2 = @"C:\Artifact";
-            bool synchronize = fileSynhronizer.Synchronize(path1, path2, "*.dll");
+            bool synchronize = fileSynhronizer.Synchronize(path1, path2, "Aras.Module.*.dll");
 
             int sum = service.Sum(1, 3);
             System.Console.WriteLine(sum);

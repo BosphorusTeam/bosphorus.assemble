@@ -67,6 +67,7 @@
     <Compile Include="Runner.AutoUpdate\IFileCopier.cs" />
     <Compile Include="Runner.AutoUpdate\IFileSynhronizer.cs" />
     <Compile Include="Runner.AutoUpdate\Installer.cs" />
+    <Compile Include="Runner\CompositeAssemblyProvider.cs" />
     <Compile Include="Runner\ConsoleRunner.cs" />
     <Compile Include="Program\IProgram.cs" />
     <Compile Include="Runner\Runner.cs" />

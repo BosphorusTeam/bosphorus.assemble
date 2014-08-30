@@ -7,12 +7,12 @@ namespace Bosphorus.BootStapper.Runner.AutoUpdate
     {
         public bool Equals(FileInfo file1, FileInfo file2)
         {
-            return file1.Name == file2.Name;
+            return file1.LastWriteTime == file2.LastWriteTime;
         }
 
         public int GetHashCode(FileInfo file)
         {
-            return file.LastWriteTime.GetHashCode();
-       }
+            return file.Length.GetHashCode();
+        }
     }
 }
