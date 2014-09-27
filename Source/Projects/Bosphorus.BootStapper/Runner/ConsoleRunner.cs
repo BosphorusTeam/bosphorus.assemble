@@ -18,9 +18,9 @@ namespace Bosphorus.BootStapper.Runner
         static ConsoleRunner()
         {
             IAssemblyProvider workingDirectoryAssemblyProvider = new WorkingDirectoryAssemblyProvider();
-            IAssemblyProvider artifactAssemblyProvider = new DirectoryAssemblyProvider(@"c:\Artifact");
-            assemblyProvider = new CompositeAssemblyProvider(workingDirectoryAssemblyProvider, artifactAssemblyProvider);
-            //assemblyProvider = workingDirectoryAssemblyProvider;
+            //IAssemblyProvider artifactAssemblyProvider = new DirectoryAssemblyProvider(@"c:\Artifact");
+            //assemblyProvider = new CompositeAssemblyProvider(workingDirectoryAssemblyProvider, artifactAssemblyProvider);
+            assemblyProvider = workingDirectoryAssemblyProvider;
             AppDomain.CurrentDomain.AssemblyResolve += CurrentDomainOnAssemblyResolve;
 
             runner = new Runner(assemblyProvider);
