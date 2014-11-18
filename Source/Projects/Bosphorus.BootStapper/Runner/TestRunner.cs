@@ -1,6 +1,6 @@
 ﻿using Bosphorus.BootStapper.Common;
 using Bosphorus.BootStapper.Program;
-using Bosphorus.Container.Castle.Registration;
+using Bosphorus.Container.Castle.Discovery;
 using Castle.Core.Internal;
 
 namespace Bosphorus.BootStapper.Runner

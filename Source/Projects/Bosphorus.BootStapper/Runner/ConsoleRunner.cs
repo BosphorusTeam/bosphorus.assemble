@@ -4,7 +4,7 @@ using System.Linq;
 using System.Reflection;
 using Bosphorus.BootStapper.Common;
 using Bosphorus.BootStapper.Program;
-using Bosphorus.Container.Castle.Registration;
+using Bosphorus.Container.Castle.Discovery;
 using Castle.Core.Internal;
 using Environment = Bosphorus.BootStapper.Common.Environment;
 
