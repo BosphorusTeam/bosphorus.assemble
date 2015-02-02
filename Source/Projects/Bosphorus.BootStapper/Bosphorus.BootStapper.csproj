@@ -56,13 +56,6 @@
     <Compile Include="Common\Host.cs" />
     <Compile Include="Common\Perspective.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Runner.AutoUpdate\DebugDecorator.cs" />
-    <Compile Include="Runner.AutoUpdate\DefaultFileCopier.cs" />
-    <Compile Include="Runner.AutoUpdate\DefaultFileSynhronizer.cs" />
-    <Compile Include="Runner.AutoUpdate\FileComparer.cs" />
-    <Compile Include="Runner.AutoUpdate\IFileCopier.cs" />
-    <Compile Include="Runner.AutoUpdate\IFileSynhronizer.cs" />
-    <Compile Include="Runner.AutoUpdate\Installer.cs" />
     <Compile Include="Runner\CompositeAssemblyProvider.cs" />
     <Compile Include="Runner\ConsoleRunner.cs" />
     <Compile Include="Program\IProgram.cs" />
