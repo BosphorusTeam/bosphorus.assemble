@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Projects", "Projects", "{278664EF-A495-49A1-89F4-26798729FA81}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bosphorus.BootStapper", "Projects\Bosphorus.BootStapper\Bosphorus.BootStapper.csproj", "{E964E4A5-A437-41AE-90DB-D2929617D55B}"

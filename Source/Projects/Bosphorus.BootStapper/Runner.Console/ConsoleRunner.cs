@@ -4,26 +4,31 @@ using System.Linq;
 using System.Reflection;
 using Bosphorus.BootStapper.Common;
 using Bosphorus.BootStapper.Program;
-using Bosphorus.Container.Castle.Discovery;
+using Bosphorus.BootStapper.Runner.Common;
+using Bosphorus.Container.Castle.Facade;
 using Castle.Core.Internal;
 using Environment = Bosphorus.BootStapper.Common.Environment;
 
-namespace Bosphorus.BootStapper.Runner
+namespace Bosphorus.BootStapper.Runner.Console
 {
     public class ConsoleRunner
     {
-        private static readonly Runner runner;
-        private static readonly IAssemblyProvider assemblyProvider;
+        private readonly static IAssemblyProvider assemblyProvider;
 
         static ConsoleRunner()
         {
-            IAssemblyProvider workingDirectoryAssemblyProvider = new WorkingDirectoryAssemblyProvider();
-            //IAssemblyProvider artifactAssemblyProvider = new DirectoryAssemblyProvider(@"c:\Artifact");
-            //assemblyProvider = new CompositeAssemblyProvider(workingDirectoryAssemblyProvider, artifactAssemblyProvider);
-            assemblyProvider = workingDirectoryAssemblyProvider;
-            AppDomain.CurrentDomain.AssemblyResolve += CurrentDomainOnAssemblyResolve;
+            assemblyProvider = new WorkingDirectoryAssemblyProvider();
+        }
 
-            runner = new Runner(assemblyProvider);
+        public static void Run<TProgram>(Environment environment, Perspective perspective, params string[] args)
+            where TProgram : class, IProgram
+        {
+            IoC ioc = new IoC(assemblyProvider);
+            ioc.Install(new CommonInstaller(environment, perspective, Host.Console));
+            ioc.Install(new Installer<TProgram>());
+
+            IProgram program = ioc.Resolve<IProgram>();
+            program.Run(args);
         }
 
         private static Assembly CurrentDomainOnAssemblyResolve(object sender, ResolveEventArgs args)
@@ -50,12 +55,6 @@ namespace Bosphorus.BootStapper.Runner
             }
 
             return null;
-        }
-
-        public static void Run<TProgram>(Environment environment, Perspective perspective, params string[] args) 
-            where TProgram : class, IProgram
-        {
-            runner.Run<TProgram>(environment, perspective, Host.Console, args);
         }
     }
 }

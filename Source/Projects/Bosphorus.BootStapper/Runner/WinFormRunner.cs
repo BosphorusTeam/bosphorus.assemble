@@ -1,5 +1,6 @@
 ﻿using System.Windows.Forms;
 using Bosphorus.BootStapper.Common;
+using Bosphorus.BootStapper.Runner.Common;
 using Bosphorus.Container.Castle.Discovery;
 using Castle.Core.Internal;
 
