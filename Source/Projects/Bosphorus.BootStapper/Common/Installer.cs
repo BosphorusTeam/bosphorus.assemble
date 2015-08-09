@@ -1,17 +1,17 @@
-﻿using Bosphorus.Container.Castle.Registration;
+﻿using Bosphorus.BootStapper.Common;
 using Castle.MicroKernel.Registration;
 using Castle.MicroKernel.SubSystems.Configuration;
 using Castle.Windsor;
 
-namespace Bosphorus.BootStapper.Common
+namespace Bosphorus.BootStapper.Program
 {
-    public class CommonInstaller: IWindsorInstaller
+    public class Installer: IWindsorInstaller
     {
         private readonly Environment environment;
         private readonly Perspective perspective;
         private readonly Host host;
 
-        public CommonInstaller(Environment environment, Perspective perspective, Host host)
+        public Installer(Environment environment, Perspective perspective, Host host)
         {
             this.environment = environment;
             this.perspective = perspective;

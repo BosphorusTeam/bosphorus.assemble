@@ -7,11 +7,11 @@ using Environment = Bosphorus.BootStapper.Common.Environment;
 
 namespace Bosphorus.BootStapper.Demo
 {
-    public class Program: IProgram
+    public class Kernel: IProgram
     {
         private readonly IService service;
 
-        public Program(IService service)
+        public Kernel(IService service)
         {
             this.service = service;
         }
@@ -23,7 +23,7 @@ namespace Bosphorus.BootStapper.Demo
         }
         static void Main(string[] args)
         {
-            ConsoleRunner.Run<Program>(Environment.Development, Perspective.Debug, args);
+            ConsoleRunner.Run<IProgram>(Environment.Development, Perspective.Debug, args);
         }
 
     }

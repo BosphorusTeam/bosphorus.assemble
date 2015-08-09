@@ -31,7 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Castle.Core, Version=3.3.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
-      <HintPath>..\..\..\..\bosphorus\Source\packages\Castle.Core.3.3.0\lib\net45\Castle.Core.dll</HintPath>
+      <HintPath>..\..\..\..\bosphorus\Source\packages\Castle.Core.3.3.3\lib\net45\Castle.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Castle.Windsor, Version=3.3.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
@@ -51,19 +51,23 @@
     <Compile Include="Common\Environment.cs" />
     <Compile Include="Common\Host.cs" />
     <Compile Include="Common\Perspective.cs" />
+    <Compile Include="Kernel\AbstractApplication.cs" />
+    <Compile Include="Kernel\IApplicationListener.cs" />
+    <Compile Include="Kernel\Installer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Runner.Common\DirectoryAssemblyProvider.cs" />
     <Compile Include="Runner.Common\WorkingDirectoryAssemblyProvider.cs" />
+    <Compile Include="Runner.Console\ConsoleApplication.cs" />
+    <Compile Include="Runner.Console\IProgram.cs" />
     <Compile Include="Runner.Console\Installer.cs" />
     <Compile Include="Runner.Console\ConsoleRunner.cs" />
-    <Compile Include="Program\IProgram.cs" />
-    <Compile Include="Common\CommonInstaller.cs" />
+    <Compile Include="Kernel\IApplication.cs" />
+    <Compile Include="Common\Installer.cs" />
+    <Compile Include="Runner.WinForn\WinFormApplication.cs" />
     <Compile Include="Runner.WinForn\Installer.cs" />
     <Compile Include="Runner.WinForn\WinFormRunner.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Runner\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\..\..\..\bosphorus.common\Source\Projects\Bosphorus.Common.Clr\Bosphorus.Common.Clr.csproj">
       <Project>{C4455788-2C4A-447F-AD77-1AB63D8B56C1}</Project>
