@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
-using Bosphorus.BootStapper.Common;
-using Environment = Bosphorus.BootStapper.Common.Environment;
+using Bosphorus.Common.Core.Application;
+using Environment = Bosphorus.Common.Core.Application.Environment;
 
 namespace Bosphorus.BootStapper.Runner.WinForn
 {

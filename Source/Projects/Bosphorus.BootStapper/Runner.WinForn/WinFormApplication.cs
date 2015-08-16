@@ -1,6 +1,6 @@
-﻿using Bosphorus.BootStapper.Common;
-using Bosphorus.BootStapper.Program;
+﻿using Bosphorus.BootStapper.Kernel;
 using Bosphorus.BootStapper.Runner.Common;
+using Bosphorus.Common.Core.Application;
 
 namespace Bosphorus.BootStapper.Runner.WinForn
 {

@@ -1,7 +1,7 @@
-﻿using Bosphorus.BootStapper.Common;
+﻿using Bosphorus.Common.Core.Application;
 using Bosphorus.Container.Castle.Facade;
 
-namespace Bosphorus.BootStapper.Program
+namespace Bosphorus.BootStapper.Kernel
 {
     public interface IApplication
     {

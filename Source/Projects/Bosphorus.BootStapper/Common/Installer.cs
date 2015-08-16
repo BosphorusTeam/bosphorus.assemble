@@ -1,9 +1,9 @@
-﻿using Bosphorus.BootStapper.Common;
+﻿using Bosphorus.Common.Core.Application;
 using Castle.MicroKernel.Registration;
 using Castle.MicroKernel.SubSystems.Configuration;
 using Castle.Windsor;
 
-namespace Bosphorus.BootStapper.Program
+namespace Bosphorus.BootStapper.Common
 {
     public class Installer: IWindsorInstaller
     {
