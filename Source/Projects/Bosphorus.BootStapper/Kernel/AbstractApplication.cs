@@ -1,5 +1,7 @@
 ﻿using System;
 using Bosphorus.Common.Core.Application;
+using Bosphorus.Common.Core.Context;
+using Bosphorus.Common.Core.Context.Application;
 using Bosphorus.Container.Castle.Facade;
 using Bosphorus.Container.Castle.Registration.Installer;
 using Castle.Core.Internal;
@@ -7,19 +9,19 @@ using Environment = Bosphorus.Common.Core.Application.Environment;
 
 namespace Bosphorus.BootStapper.Kernel
 {
-    public abstract class AbstractApplication : IApplication, IApplicationListener
+    public abstract class AbstractApplication : IApplication, IContextListener<ApplicationContext>
     {
         private readonly IoC ioc;
         private readonly Host host;
-        public event EventHandler<ApplicationStartEventArgs> AfterStarted;
-        public event EventHandler<EventArgs> AfterFinished;
+        public event EventHandler<ContextEventArgs<ApplicationContext>> ContextStarted;
+        public event EventHandler<ContextEventArgs<ApplicationContext>> ContextFinished;
 
         protected AbstractApplication(Host host, IAssemblyProvider assemblyProvider)
         {
             this.host = host;
             this.ioc = new IoC(assemblyProvider);
-            this.AfterStarted = delegate {};
-            this.AfterFinished = delegate {};
+            this.ContextStarted = delegate {};
+            this.ContextFinished = delegate {};
         }
 
         public IoC IoC => ioc;
@@ -31,13 +33,16 @@ namespace Bosphorus.BootStapper.Kernel
             ioc.Install<IBootStrapInstaller>();
             ioc.Install<IInfrastructureInstaller>();
 
-            ApplicationStartEventArgs eventArgs = new ApplicationStartEventArgs(environment, perspective, host);
-            AfterStarted(this, eventArgs);
+            ApplicationContext applicationContext = new ApplicationContext(environment, perspective, host);
+            ContextEventArgs<ApplicationContext> contextEventArgs = new ContextEventArgs<ApplicationContext>(applicationContext);
+            ContextStarted(this, contextEventArgs);
         }
 
         public void Stop()
         {
-            AfterFinished(this, new EventArgs());
+            ApplicationContext applicationContext = null;
+            ContextEventArgs<ApplicationContext> contextEventArgs = new ContextEventArgs<ApplicationContext>(applicationContext);
+            ContextFinished(this, contextEventArgs);
         }
 
     }
