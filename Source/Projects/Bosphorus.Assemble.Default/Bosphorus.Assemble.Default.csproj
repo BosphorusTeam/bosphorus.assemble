@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{686F64C3-B467-4FE7-A4EE-72DECF9B5B80}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Bosphorus.Assemble.Default</RootNamespace>
+    <AssemblyName>Bosphorus.Assemble.Default</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Castle.Windsor">
+      <HintPath>..\..\..\..\bosphorus\Source\packages\Castle.Windsor.3.3.0\lib\net45\Castle.Windsor.dll</HintPath>
+    </Reference>
+    <Reference Include="Iesi.Collections, Version=4.0.0.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\bosphorus\Source\packages\Iesi.Collections.4.0.0.4000\lib\net40\Iesi.Collections.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NHibernate, Version=4.0.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\bosphorus\Source\packages\NHibernate.4.0.3.4000\lib\net40\NHibernate.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Dao.NHibernate.Fluent.ConfigurationProcessor\SchemaUpdater.cs" />
+    <Compile Include="Installer.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\bosphorus.common\Source\Projects\Bosphorus.Common.Core\Bosphorus.Common.Api.csproj">
+      <Project>{6683BC19-B6C9-4686-B8FF-EE4A8596C724}</Project>
+      <Name>Bosphorus.Common.Api</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\bosphorus.configuration\Source\Projects\Bosphorus.Configuration.Core\Bosphorus.Configuration.Core.csproj">
+      <Project>{FC5A7B05-6722-4959-988F-6ECB569EB356}</Project>
+      <Name>Bosphorus.Configuration.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\bosphorus.configuration\Source\Projects\Bosphorus.Configuration.Default\Bosphorus.Configuration.Default.csproj">
+      <Project>{38BF9F92-847F-4703-A86B-22C7F2AC9B52}</Project>
+      <Name>Bosphorus.Configuration.Default</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\bosphorus.container\Source\Projects\Bosphorus.Container.Castle\Bosphorus.Common.Container.csproj">
+      <Project>{9B8DBFE7-A90C-40D6-B9C1-B6A9528F8317}</Project>
+      <Name>Bosphorus.Common.Container</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\bosphorus.dao\Source\Projects\Bosphorus.Dao.Core\Bosphorus.Dao.Core.csproj">
+      <Project>{5C3B656E-528C-4988-A31F-EA0AABC82CFB}</Project>
+      <Name>Bosphorus.Dao.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\bosphorus.dao\Source\Projects\Bosphorus.Dao.NHibernate\Bosphorus.Dao.NHibernate.csproj">
+      <Project>{30FB7F75-FF3E-49DF-AFBD-F9037E7C5A80}</Project>
+      <Name>Bosphorus.Dao.NHibernate</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\bosphorus.logging\Source\Projects\Bosphorus.Logging.Console\Bosphorus.Logging.Console.csproj">
+      <Project>{CAC6B8C3-9DFA-46EB-B425-9840760F1368}</Project>
+      <Name>Bosphorus.Logging.Console</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\bosphorus.logging\Source\Projects\Bosphorus.Logging.Core\Bosphorus.Logging.Core.csproj">
+      <Project>{0E43DB14-987E-415D-8CDD-962C40C5AEA7}</Project>
+      <Name>Bosphorus.Logging.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\bosphorus.serialization\Source\Projects\Bosphorus.Serialization.Core\Bosphorus.Serialization.Core.csproj">
+      <Project>{CB559403-63CD-4945-8E52-14247BC4674B}</Project>
+      <Name>Bosphorus.Serialization.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\bosphorus.serialization\Source\Projects\Bosphorus.Serialization.Default\Bosphorus.Serialization.Default.csproj">
+      <Project>{2AEEB2D7-AD83-467C-942F-A94EA7ABE004}</Project>
+      <Name>Bosphorus.Serialization.Default</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

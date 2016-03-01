@@ -1,4 +1,4 @@
-bosphorus.bootstrapper
+bosphorus.assemble
 ======================
 
-bosphorus.bootstrapper
+bosphorus.assemble
