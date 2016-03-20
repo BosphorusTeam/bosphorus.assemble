@@ -34,13 +34,25 @@ namespace Bosphorus.Assemble.BootStrapper.Runner.WinForm
             );
 
             var applicationContextInvoker = ioc.Resolve<ApplicationContextInvoker>();
-            applicationContextInvoker.InvokeStarted();
 
-            Application.EnableVisualStyles();
-            TForm form = ioc.Resolve<TForm>();
-            Application.Run(form);
+            try
+            {
+                applicationContextInvoker.InvokeStarted();
 
-            applicationContextInvoker.InvokeFinished();
+                Application.EnableVisualStyles();
+                TForm form = ioc.Resolve<TForm>();
+                Application.Run(form);
+
+                applicationContextInvoker.InvokeSuccessful();
+            }
+            catch (Exception)
+            {
+                applicationContextInvoker.InvokeFailed();
+            }
+            finally
+            {
+                applicationContextInvoker.InvokeFinished();
+            }
         } 
     }
 }

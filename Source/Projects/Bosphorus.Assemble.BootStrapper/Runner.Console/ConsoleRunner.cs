@@ -32,12 +32,22 @@ namespace Bosphorus.Assemble.BootStrapper.Runner.Console
             );
 
             var applicationContextInvoker = ioc.Resolve<ApplicationContextInvoker>();
-            applicationContextInvoker.InvokeStarted();
 
-            IProgram program = ioc.Resolve<IProgram>();
-            program.Run(args);
-
-            applicationContextInvoker.InvokeFinished();
+            try
+            {
+                applicationContextInvoker.InvokeStarted();
+                IProgram program = ioc.Resolve<IProgram>();
+                program.Run(args);
+                applicationContextInvoker.InvokeSuccessful();
+            }
+            catch (Exception)
+            {
+                applicationContextInvoker.InvokeFailed();
+            }
+            finally
+            {
+                applicationContextInvoker.InvokeFinished();
+            }
         }
 
     }

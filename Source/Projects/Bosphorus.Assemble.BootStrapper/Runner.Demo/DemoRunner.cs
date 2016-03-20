@@ -35,18 +35,29 @@ namespace Bosphorus.Assemble.BootStrapper.Runner.Demo
             ioc.Install<Installer>();
 
             var applicationContextInvoker = ioc.Resolve<ApplicationContextInvoker>();
-            applicationContextInvoker.InvokeStarted();
 
-            Application.EnableVisualStyles();
-            var executerHostForm = ioc.Resolve<ExecuterHostForm>();
+            try
+            {
+                applicationContextInvoker.InvokeStarted();
 
-            TextWriter textWriter = new RichTextBoxWriter(executerHostForm.tbConsole);
-            TextWriter compsoiteWriter = new CompositeTextWriter(System.Console.Out, textWriter);
-            System.Console.SetOut(compsoiteWriter);
+                Application.EnableVisualStyles();
+                var executerHostForm = ioc.Resolve<ExecuterHostForm>();
 
-            Application.Run(executerHostForm);
+                TextWriter textWriter = new RichTextBoxWriter(executerHostForm.tbConsole);
+                TextWriter compsoiteWriter = new CompositeTextWriter(System.Console.Out, textWriter);
+                System.Console.SetOut(compsoiteWriter);
 
-            applicationContextInvoker.InvokeFinished();
+                Application.Run(executerHostForm);
+                applicationContextInvoker.InvokeSuccessful();
+            }
+            catch (Exception)
+            {
+                applicationContextInvoker.InvokeFailed();
+            }
+            finally
+            {
+                applicationContextInvoker.InvokeFinished();
+            }
         }
     }
 }

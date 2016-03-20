@@ -23,7 +23,13 @@ namespace Bosphorus.Assemble.BootStrapper.Runner.Demo.ExecutableItem
             {
                 callDefaultContextInvoker.InvokeStarted(callContext);
                 IList result = decorated.Execute();
+                callDefaultContextInvoker.InvokeSuccessful(callContext);
                 return result;
+            }
+            catch (Exception)
+            {
+                callDefaultContextInvoker.InvokeFailed(callContext);
+                throw;
             }
             finally
             {
