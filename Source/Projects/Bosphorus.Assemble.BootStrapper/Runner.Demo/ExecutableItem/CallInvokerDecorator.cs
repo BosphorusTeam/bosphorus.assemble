@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using Bosphorus.Common.Api.Context.Listener;
 using Bosphorus.Common.Application.Scope.Call;
 
@@ -18,10 +19,16 @@ namespace Bosphorus.Assemble.BootStrapper.Runner.Demo.ExecutableItem
         public IList Execute()
         {
             CallContext callContext = new CallContext();
-            callDefaultContextInvoker.InvokeStarted(callContext);
-            IList result = decorated.Execute();
-            callDefaultContextInvoker.InvokeFinished(callContext);
-            return result;
+            try
+            {
+                callDefaultContextInvoker.InvokeStarted(callContext);
+                IList result = decorated.Execute();
+                return result;
+            }
+            finally
+            {
+                callDefaultContextInvoker.InvokeFinished(callContext);
+            }
         }
 
         public override string ToString()

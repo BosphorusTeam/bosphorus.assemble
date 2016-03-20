@@ -1,4 +1,5 @@
-﻿using Bosphorus.Assemble.BootStrapper.Runner.Demo.ExecutableItem;
+﻿using System;
+using Bosphorus.Assemble.BootStrapper.Runner.Demo.ExecutableItem;
 using Castle.Windsor;
 
 namespace Bosphorus.Assemble.BootStrapper.Demo
@@ -17,6 +18,11 @@ namespace Bosphorus.Assemble.BootStrapper.Demo
         {
             int sum = demoService.Sum(3, 5);
             return sum;
+        }
+
+        public void ThrowException()
+        {
+            throw new Exception("Deneme");
         }
     }
 }
