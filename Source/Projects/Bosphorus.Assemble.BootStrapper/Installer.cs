@@ -1,5 +1,4 @@
-﻿using Bosphorus.Common.Api.Container;
-using Bosphorus.Common.Api.Symbol;
+﻿using Bosphorus.Common.Api.Symbol;
 using Bosphorus.Common.Application;
 using Castle.Facilities.Startable;
 using Castle.MicroKernel.Registration;

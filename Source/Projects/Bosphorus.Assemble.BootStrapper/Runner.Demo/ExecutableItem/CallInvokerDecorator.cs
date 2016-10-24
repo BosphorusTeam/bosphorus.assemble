@@ -26,10 +26,14 @@ namespace Bosphorus.Assemble.BootStrapper.Runner.Demo.ExecutableItem
                 callDefaultContextInvoker.InvokeSuccessful(callContext);
                 return result;
             }
-            catch (Exception)
+            catch (Exception exception)
             {
-                callDefaultContextInvoker.InvokeFailed(callContext);
-                throw;
+                var handled = callDefaultContextInvoker.InvokeFailed(callContext, exception);
+                if (!handled)
+                {
+                    throw;
+                }
+                return new ArrayList();
             }
             finally
             {

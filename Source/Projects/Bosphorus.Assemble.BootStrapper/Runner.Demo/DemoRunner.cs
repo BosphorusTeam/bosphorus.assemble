@@ -44,15 +44,19 @@ namespace Bosphorus.Assemble.BootStrapper.Runner.Demo
                 var executerHostForm = ioc.Resolve<ExecuterHostForm>();
 
                 TextWriter textWriter = new RichTextBoxWriter(executerHostForm.tbConsole);
-                TextWriter compsoiteWriter = new CompositeTextWriter(System.Console.Out, textWriter);
-                System.Console.SetOut(compsoiteWriter);
+                TextWriter compositeWriter = new CompositeTextWriter(System.Console.Out, textWriter);
+                System.Console.SetOut(compositeWriter);
 
                 Application.Run(executerHostForm);
                 applicationContextInvoker.InvokeSuccessful();
             }
-            catch (Exception)
+            catch (Exception exception)
             {
-                applicationContextInvoker.InvokeFailed();
+                var handled = applicationContextInvoker.InvokeFailed(exception);
+                if (!handled)
+                {
+                    throw;
+                }
             }
             finally
             {

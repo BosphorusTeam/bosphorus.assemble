@@ -41,9 +41,6 @@ namespace Bosphorus.Assemble.BootStrapper.Runner.Demo
                 writer.Close();
         }
 
-        public override Encoding Encoding
-        {
-            get { return Encoding.ASCII; }
-        }
+        public override Encoding Encoding => Encoding.ASCII;
     }
 }

@@ -45,9 +45,13 @@ namespace Bosphorus.Assemble.BootStrapper.Runner.WinForm
 
                 applicationContextInvoker.InvokeSuccessful();
             }
-            catch (Exception)
+            catch (Exception exception)
             {
-                applicationContextInvoker.InvokeFailed();
+                var handled = applicationContextInvoker.InvokeFailed(exception);
+                if (!handled)
+                {
+                    throw;
+                }
             }
             finally
             {

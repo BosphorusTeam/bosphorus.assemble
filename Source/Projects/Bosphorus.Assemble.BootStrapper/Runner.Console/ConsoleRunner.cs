@@ -13,7 +13,7 @@ namespace Bosphorus.Assemble.BootStrapper.Runner.Console
 {
     public class ConsoleRunner
     {
-        private readonly static ITypeProvider typeProvider;
+        private static readonly ITypeProvider typeProvider;
 
         static ConsoleRunner()
         {
@@ -40,9 +40,13 @@ namespace Bosphorus.Assemble.BootStrapper.Runner.Console
                 program.Run(args);
                 applicationContextInvoker.InvokeSuccessful();
             }
-            catch (Exception)
+            catch (Exception exception)
             {
-                applicationContextInvoker.InvokeFailed();
+                var handled = applicationContextInvoker.InvokeFailed(exception);
+                if (!handled)
+                {
+                    throw;
+                }
             }
             finally
             {

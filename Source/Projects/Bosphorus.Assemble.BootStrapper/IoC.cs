@@ -12,7 +12,7 @@ namespace Bosphorus.Assemble.BootStrapper
     {
         private readonly ITypeProvider typeProvider;
         private readonly WindsorContainer container;
-        public static WindsorContainer staticContainer;
+        public static WindsorContainer StaticContainer;
 
         public IoC(ITypeProvider typeProvider, Environment environment, Perspective perspective, Host host, Type[] installerTypes)
         {
@@ -24,7 +24,7 @@ namespace Bosphorus.Assemble.BootStrapper
             Install<IBosphorusInstaller>();
             Install(installerTypes);
 
-            staticContainer = container;
+            StaticContainer = container;
         }
 
         public void Register(params IRegistration[] registrations)
