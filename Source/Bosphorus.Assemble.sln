@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Projects", "Projects", "{7EB28329-63E5-4C97-B478-845C35423BC7}"
 EndProject
@@ -10,6 +10,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Demos", "Demos", "{867BC4DD-09C2-4E2A-A1A1-446F3FB2ADF5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bosphorus.Assemble.BootStrapper.Demo", "Demos\Bosphorus.Assemble.BootStrapper.Demo\Bosphorus.Assemble.BootStrapper.Demo.csproj", "{F87C6A9D-A04C-4AC8-8D7C-99223B0DAF7F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bosphorus.Assemble.WireUp", "Projects\Bosphorus.Assemble.WireUp\Bosphorus.Assemble.WireUp.csproj", "{6EC6FDB2-3F81-4D23-9783-3F881C571F72}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,6 +27,10 @@ Global
 		{F87C6A9D-A04C-4AC8-8D7C-99223B0DAF7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F87C6A9D-A04C-4AC8-8D7C-99223B0DAF7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F87C6A9D-A04C-4AC8-8D7C-99223B0DAF7F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6EC6FDB2-3F81-4D23-9783-3F881C571F72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6EC6FDB2-3F81-4D23-9783-3F881C571F72}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6EC6FDB2-3F81-4D23-9783-3F881C571F72}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6EC6FDB2-3F81-4D23-9783-3F881C571F72}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -32,5 +38,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{59B1CD5A-D68A-493E-AB56-521E64F2A7CE} = {7EB28329-63E5-4C97-B478-845C35423BC7}
 		{F87C6A9D-A04C-4AC8-8D7C-99223B0DAF7F} = {867BC4DD-09C2-4E2A-A1A1-446F3FB2ADF5}
+		{6EC6FDB2-3F81-4D23-9783-3F881C571F72} = {7EB28329-63E5-4C97-B478-845C35423BC7}
 	EndGlobalSection
 EndGlobal
