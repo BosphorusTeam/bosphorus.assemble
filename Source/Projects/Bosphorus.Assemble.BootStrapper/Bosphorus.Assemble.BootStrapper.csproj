@@ -83,6 +83,7 @@
     <Compile Include="Runner.Demo\ResultTransformer\ModelResultTransformer.cs" />
     <Compile Include="Runner.Demo\ResultTransformer\QueryableResultTransformer.cs" />
     <Compile Include="Runner.Demo\RichTextBoxWriter.cs" />
+    <Compile Include="Runner.Test\TestRunner.cs" />
     <Compile Include="Runner.WinForm\WinFormRunner.cs" />
   </ItemGroup>
   <ItemGroup>
